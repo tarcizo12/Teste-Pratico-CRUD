@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/home/tarcizo/Área de Trabalho/Tarcizo/Projetos/Teste-Pratico-CRUD/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4013607337.index
+1392187242.index
+4203792581.index
+2826560979.index
+2189108881.index

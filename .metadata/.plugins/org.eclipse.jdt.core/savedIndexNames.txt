@@ -1,0 +1,3 @@
+INDEX VERSION 1.134+/home/tarcizo/Área de Trabalho/Tarcizo/Projetos/Teste-Pratico-CRUD/.metadata/.plugins/org.eclipse.jdt.core
+1206099917.index
+4013607337.index
