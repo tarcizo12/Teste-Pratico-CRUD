@@ -32,7 +32,7 @@ Este guia fornece instruções passo a passo sobre como configurar e executar o 
 3. **Execute o Docker**
    - Partindo do diretorio raíz do projeto, caminhe até a pasta _Docker_.
    - Feito isso, abra o terminal neste diretorio e execute o comando: _docker-compose up --build_
-   - Desa forma, o banco ja estará configurado.
+   - Dessa forma, o banco ja estará configurado.
 
 ## Como Iniciar o Projeto
 
