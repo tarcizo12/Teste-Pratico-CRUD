@@ -23,5 +23,10 @@ public class PersonRegisterService implements Serializable {
 	
 	@Transactional
 	public void update(Person empresa) { personRepository.update(empresa);}
+	
+	@Transactional
+	public void findAllAddress(Person empresa) { 
+		personRepository.update(empresa);
+	}
 
 }
