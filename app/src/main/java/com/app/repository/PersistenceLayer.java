@@ -30,29 +30,29 @@ public class PersistenceLayer {
         person.setGender("M");
 
         // Salvando a pessoa antes de associar os endereços
-        personRepository.save(person);
+        Person personSaved = personRepository.save(person);
 
-//        // Criando endereços para a pessoa
-//        Address address1 = new Address();
-//        address1.setState("CA");
-//        address1.setCity("San Francisco");
-//        address1.setStreet("123 Main St");
-//        address1.setNumber("1");
-//        address1.setPostalCode("12345");
-//        address1.setPerson(person);
-//
-//        Address address2 = new Address();
-//        address2.setState("NY");
-//        address2.setCity("New York");
-//        address2.setStreet("456 Oak St");
-//        address2.setNumber("2");
-//        address2.setPostalCode("67890");
-//        address2.setPerson(person);
-//
-//        // Salvando os endereços
-//        addressRepository.save(address1);
-//        addressRepository.save(address2);
-//
+        // Criando endereços para a pessoa
+        Address address1 = new Address();
+        address1.setState("CA");
+        address1.setCity("San Francisco");
+        address1.setStreet("123 Main St");
+        address1.setNumber("1");
+        address1.setPostalCode("12345");
+        address1.setPerson(personSaved);
+
+        Address address2 = new Address();
+        address2.setState("NY");
+        address2.setCity("New York");
+        address2.setStreet("456 Oak St");
+        address2.setNumber("2");
+        address2.setPostalCode("67890");
+        address2.setPerson(personSaved);
+
+        // Salvando os endereços
+        addressRepository.save(address1);
+        addressRepository.save(address2);
+
         em.getTransaction().commit();
 
         // Verificando se a inserção funcionou
