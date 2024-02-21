@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:12.8  # Use a versão do PostgreSQL compatível com a dependência Maven
+    container_name: meu-container-postgres
+    environment:
+      POSTGRES_DB: cadastro-de-pessoas
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: "1234"  # Certifique-se de que a senha está entre aspas
+    ports:
+      - "5432:5432"

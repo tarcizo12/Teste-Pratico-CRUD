@@ -30,6 +30,19 @@ public class Address implements Serializable {
 	
 	@Column(name = "POSTAL_CODE" , length = 8)
 	private String postalCode;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_PERSON", nullable = false)
+	private Person person;
+
+	
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
 	public Long getId() {
 		return id;
