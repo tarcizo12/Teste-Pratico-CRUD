@@ -1,5 +1,6 @@
 package com.app.repository;
 
+import com.app.model.Person;
 import java.io.Serializable;
 import java.util.List;
 
@@ -36,6 +37,20 @@ public class AddressRepository implements Serializable {
 
         return query.getResultList();
     }
+    
+    public List<Address> findAllByAddressByPerson(Person person) {
+        CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
+
+        CriteriaQuery<Address> criteriaQuery = criteriaBuilder.createQuery(Address.class);
+        Root<Address> root = criteriaQuery.from(Address.class);
+        
+        criteriaQuery.select(root);
+        criteriaQuery.where(criteriaBuilder.equal(root.get("ID_PERSON"), person.getId()));
+
+        TypedQuery<Address> query = manager.createQuery(criteriaQuery);
+        return query.getResultList();
+    }
+
 
     public Address save(Address address) {
         return manager.merge(address);
@@ -49,4 +64,23 @@ public class AddressRepository implements Serializable {
     public Address findById(Long id) {
         return manager.find(Address.class, id);
     }
+    
+    public Address update(Address newAddress) {
+        Address existingAddress = findById(newAddress.getId());
+
+        if (existingAddress != null) {
+            existingAddress.setState(newAddress.getState());
+            existingAddress.setCity(newAddress.getCity());
+            existingAddress.setStreet(newAddress.getStreet());
+            existingAddress.setNumber(newAddress.getNumber());
+            existingAddress.setPostalCode(newAddress.getPostalCode());
+
+            manager.merge(existingAddress);
+
+            return existingAddress;
+        } else {
+            return null;
+        }
+    }
+
 }

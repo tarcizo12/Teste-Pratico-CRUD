@@ -42,4 +42,21 @@ public class PersonRepository implements Serializable {
         person = findById(person.getId());
         manager.remove(person);
     }
+    
+    public Person update(Person newPerson) {
+        Person existingPerson = findById(newPerson.getId());
+
+        if (existingPerson != null) {
+            existingPerson.setName(newPerson.getName());
+            existingPerson.setAge(newPerson.getAge());
+            existingPerson.setGender(newPerson.getGender());
+
+            manager.merge(existingPerson);
+
+            return existingPerson;
+        } else {
+            return null;
+        }
+    }
+
 }
