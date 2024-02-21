@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "PERSON")
 public class Person implements Serializable {
@@ -13,6 +14,7 @@ public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@Column(name = "ID_PERSON")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
@@ -24,9 +26,7 @@ public class Person implements Serializable {
 	
 	@Column(name = "GENDER" , nullable = false, length = 2)
 	private String gender;
-	
-	@ManyToOne
-	@JoinColumn(name = "ID_ADDRESS")
+
 	
 	public Long getId() {
 		return id;
