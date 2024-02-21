@@ -19,20 +19,19 @@ public class PersistenceLayer {
 
         em.getTransaction().begin();
 
-        // Declarando os repositórios
+        
         PersonRepository personRepository = new PersonRepository(em);
         AddressRepository addressRepository = new AddressRepository(em);
 
-        // Criando uma pessoa
+        
         Person person = new Person();
         person.setName("John Doe");
         person.setAge(LocalDate.of(1990, 5, 15));
         person.setGender("M");
 
-        // Salvando a pessoa antes de associar os endereços
+        
         Person personSaved = personRepository.save(person);
-
-        // Criando endereços para a pessoa
+        
         Address address1 = new Address();
         address1.setState("CA");
         address1.setCity("San Francisco");
@@ -49,13 +48,13 @@ public class PersistenceLayer {
         address2.setPostalCode("67890");
         address2.setPerson(personSaved);
 
-        // Salvando os endereços
+        
         addressRepository.save(address1);
         addressRepository.save(address2);
 
         em.getTransaction().commit();
 
-        // Verificando se a inserção funcionou
+   
         List<Person> people = personRepository.searchByName("John");
         System.out.println(people);
 
