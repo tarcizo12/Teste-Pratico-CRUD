@@ -53,7 +53,7 @@ public class PersistenceLayer {
 //        addressRepository.save(address1);
 //        addressRepository.save(address2);
 //
-//        em.getTransaction().commit();
+        em.getTransaction().commit();
 
         // Verificando se a inserção funcionou
         List<Person> people = personRepository.searchByName("John");
